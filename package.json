@@ -1,13 +1,18 @@
 {
-  "name": "stream-replace",
+  "name": "stream-buffer-replace",
   "version": "1.0.0",
-  "description": "Boundary aware efficient streaming find/replace",
+  "description": "Efficient streaming find and replace. Buffer based and boundary aware.",
   "main": "index.js",
   "scripts": {
     "test": "node_modules/.bin/mocha"
   },
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Andy Kent"
+  },
+  "repository": {
+    "url": "git://github.com/andykent/stream-buffer-replace.git"
+  },
+  "license": "MIT",
   "dependencies": {
     "buffer-indexof": "0.0.2"
   },
