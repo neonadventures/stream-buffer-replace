@@ -1,0 +1,18 @@
+{
+  "name": "stream-replace",
+  "version": "1.0.0",
+  "description": "Boundary aware efficient streaming find/replace",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "buffer-indexof": "0.0.2"
+  },
+  "devDependencies": {
+    "stream-buffers": "^2.1.0",
+    "mocha": "^2.2.4"
+  }
+}
