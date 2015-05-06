@@ -10,7 +10,7 @@
     "name": "Andy Kent"
   },
   "repository": {
-    "url": "git://github.com/andykent/stream-buffer-replace.git"
+    "url": "git://github.com/neonadventures/stream-buffer-replace.git"
   },
   "license": "MIT",
   "dependencies": {
