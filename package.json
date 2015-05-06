@@ -1,6 +1,6 @@
 {
   "name": "stream-buffer-replace",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Efficient streaming find and replace. Buffer based and boundary aware.",
   "main": "index.js",
   "scripts": {

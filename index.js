@@ -35,7 +35,12 @@ ReplaceStream.prototype.pushWithReplacements = function(src, done) {
   var f = function(i) {
     var start = bindexOf(src, this.matcher, i);
     if(start === -1) {
-      return src.slice(i);
+      var remainder = src.slice(i);
+      if(remainder.length > this.replacement.length) {
+        this.push(remainder.slice(0, remainder.length - this.replacement.length));
+        remainder = remainder.slice(remainder.length - this.replacement.length);
+      }
+      return remainder;
     }
     var parts = [];
     parts.push(src.slice(i, start));
