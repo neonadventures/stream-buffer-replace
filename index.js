@@ -7,22 +7,26 @@ util.inherits(ReplaceStream, stream.Transform);
 function ReplaceStream(matcher, replacement, options) {
   this.matcher = new Buffer(matcher);
   this.replacement = new Buffer(replacement);
+  this.chunksLength = 0;
   this.chunks = [];
   stream.Transform.call(this, options);
 }
 
 ReplaceStream.prototype._transform = function(chunk, encoding, done) {
   this.chunks.push(chunk);
-  var segment = Buffer.concat(this.chunks)
+  this.chunksLength += chunk.length;
+  var segment = Buffer.concat(this.chunks, this.chunksLength);
   remainder = this.pushWithReplacements(segment);
   this.chunks = [remainder];
+  this.chunksLength = remainder.length;
   done();
 }
 
 ReplaceStream.prototype._flush = function(done) {
   if(this.chunks.length > 0) {
-    this.push(Buffer.concat(this.chunks));
+    this.push(Buffer.concat(this.chunks, this.chunksLength));
     this.chunks = [];
+    this.chunksLength = 0;
     done();
   }
 }
